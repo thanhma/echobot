@@ -19,10 +19,9 @@ const app = express();
 // register a webhook handler with middleware
 // about the middleware, please refer to doc
 app.post('/webhook', line.middleware(config), (req, res) => {
-  client.pushMessage('thanhma', {
-    type: 'text',
-    text: 'hello, world',
-  })
+  client.getProfile('thanhma').then((profile) => {
+    console.log(profile);
+  });
 });
 
 // event handler
